@@ -47,11 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BookStacking.cs">
+    <Compile Include="..\BookStackListVersion\BookStacking.cs">
+      <Link>BookStacking.cs</Link>
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BookStacking.Designer.cs">
+    <Compile Include="..\BookStackListVersion\BookStacking.Designer.cs">
       <DependentUpon>BookStacking.cs</DependentUpon>
+      <Link>BookStacking.Designer.cs</Link>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -59,13 +61,41 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Game1Chapters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game1Chapters.Designer.cs">
+      <DependentUpon>Game1Chapters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Game1Instructions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Game1Instructions.Designer.cs">
+      <DependentUpon>Game1Instructions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MatchGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MatchGame.Designer.cs">
+      <DependentUpon>MatchGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BookStacking.resx">
+    <EmbeddedResource Include="..\BookStackListVersion\BookStacking.resx">
       <DependentUpon>BookStacking.cs</DependentUpon>
+      <Link>BookStacking.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game1Chapters.resx">
+      <DependentUpon>Game1Chapters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Game1Instructions.resx">
+      <DependentUpon>Game1Instructions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MatchGame.resx">
+      <DependentUpon>MatchGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -75,6 +105,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -88,6 +119,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Bg_MatchBooks.png" />
+    <Content Include="Images\Bg_NewMatchBooks.png" />
+    <Content Include="Images\Check.png" />
+    <Content Include="Images\deweydecimalicon.ico" />
+    <Content Include="Images\Go.png" />
+    <Content Include="Images\Help %281%29.png" />
+    <Content Include="Images\Help-_1_.ico" />
+    <Content Include="Images\Hint.png" />
+    <Content Include="Images\Home2.png" />
+    <Content Include="Images\Play %282%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

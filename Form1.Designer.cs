@@ -71,6 +71,7 @@ namespace DeweyDecimalStacking
             this.btnCodeMatch.Size = new System.Drawing.Size(171, 201);
             this.btnCodeMatch.TabIndex = 2;
             this.btnCodeMatch.UseVisualStyleBackColor = false;
+            this.btnCodeMatch.Click += new System.EventHandler(this.btnCodeMatch_Click);
             // 
             // btnCodeFind
             // 
@@ -81,6 +82,7 @@ namespace DeweyDecimalStacking
             this.btnCodeFind.Size = new System.Drawing.Size(171, 201);
             this.btnCodeFind.TabIndex = 3;
             this.btnCodeFind.UseVisualStyleBackColor = false;
+            this.btnCodeFind.Click += new System.EventHandler(this.btnCodeFind_Click);
             // 
             // lnInstruct
             // 

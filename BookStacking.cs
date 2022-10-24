@@ -27,7 +27,28 @@ namespace DeweyDecimalStacking
         public BookStacking()
         {
             InitializeComponent();
+            SortedPanel.AllowDrop = true;
+            UnsortedPanel.AllowDrop = true;
+
+            // DragEventHandler FlowLayoutPanel_DragEnter = null;
+            UnsortedPanel.DragEnter += panel_DragEnter;
+            SortedPanel.DragEnter += panel_DragEnter;
+
+            SortedPanel.DragDrop += panel_DragDrop;
+            UnsortedPanel.DragDrop += panel_DragDrop;
+
+            book1.MouseDown += act1_MouseDown;
+            book2.MouseDown += act2_MouseDown;
+            book3.MouseDown += act3_MouseDown;
+            book4.MouseDown += act4_MouseDown;
+            book5.MouseDown += act5_MouseDown;
+            book6.MouseDown += act6_MouseDown;
+            book7.MouseDown += act7_MouseDown;
+            book8.MouseDown += act8_MouseDown;
+            book9.MouseDown += act9_MouseDown;
+            book10.MouseDown += act10_MouseDown;
         }
+
 
         private void btnSortStart_Click(object sender, EventArgs e)
         {
@@ -104,6 +125,57 @@ namespace DeweyDecimalStacking
             Array.Sort(sortedbooks);
         }
 //-------------------------------------------------------------------------------------------------
+       void act1_MouseDown(object sender, MouseEventArgs e)
+        {
+            book1.DoDragDrop(book1, DragDropEffects.Move);
+        }
+        void act2_MouseDown(object sender, MouseEventArgs e)
+        {
+            book2.DoDragDrop(book2, DragDropEffects.Move);
+        }
+        void act3_MouseDown(object sender, MouseEventArgs e)
+        {
+            book3.DoDragDrop(book3, DragDropEffects.Move);
+        }
+        void act4_MouseDown(object sender, MouseEventArgs e)
+        {
+            book4.DoDragDrop(book4, DragDropEffects.Move);
+        }
+        void act5_MouseDown(object sender, MouseEventArgs e)
+        {
+            book5.DoDragDrop(book5, DragDropEffects.Move);
+        }
+        void act6_MouseDown(object sender, MouseEventArgs e)
+        {
+            book6.DoDragDrop(book6, DragDropEffects.Move);
+        }
+        void act7_MouseDown(object sender, MouseEventArgs e)
+        {
+            book7.DoDragDrop(book7, DragDropEffects.Move);
+        }
+        void act8_MouseDown(object sender, MouseEventArgs e)
+        {
+            book8.DoDragDrop(book8, DragDropEffects.Move);
+
+        }
+        void act9_MouseDown(object sender, MouseEventArgs e)
+        {
+            book9.DoDragDrop(book9, DragDropEffects.Move);
+        }
+        void act10_MouseDown(object sender, MouseEventArgs e)
+        {
+            book10.DoDragDrop(book10, DragDropEffects.Move);
+        }
+
+        void panel_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+        void panel_DragDrop(object sender, DragEventArgs e)
+        {
+            ((Label)e.Data.GetData(typeof(Label))).Parent = (Panel)sender;
+        }
+        //-------------------------------------------------------------------------------------------------        
         //Letter generator method
         /*public string RandomString(int size, bool lowerCase = false)
         {
@@ -126,7 +198,7 @@ namespace DeweyDecimalStacking
 
             return lowerCase ? builder.ToString().ToLower() : builder.ToString();
         }*/
-//-------------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------------------------
         private void BookStacking_Load(object sender, EventArgs e)
         {
 
@@ -135,10 +207,9 @@ namespace DeweyDecimalStacking
 //-------------------------------------------------------------------------------------------------
         private void btnHome1_Click(object sender, EventArgs e)
         {
-           // if (form1 == null)
-            //    form1 = new Form1();
-            //this.Close();
-            //form1.Show();
+            Form1 f1 = new Form1();
+            f1.Show();
+            this.FormClosed();
         }
 //-------------------------------------------------------------------------------------------------
         
