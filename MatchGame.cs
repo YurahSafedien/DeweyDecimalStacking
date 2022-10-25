@@ -14,6 +14,9 @@ namespace DeweyDecimalStacking
     {
         double index = 1;
         Random ran = new Random();
+        /// <summary>
+        /// Code populated dictionaries
+        /// </summary>
         Dictionary<int, string> LabelValues = new Dictionary<int, string>();
         Dictionary<int, string> LabelValues2 = new Dictionary<int, string>();
         //Dictionary<int, string> EmptyLabels = new Dictionary<int, string>();
@@ -70,8 +73,8 @@ namespace DeweyDecimalStacking
             label101.MouseDown += act10_MouseDown;
         }
 
-        //-------------------------------------------------------------------------------------------------
-        //MOUSEDOWN EVENT METHODS
+        ///-------------------------------------------------------------------------------------------------
+        ///MOUSEDOWN EVENT METHODS
         /// <summary>
         /// https://stackoverflow.com/questions/1733912/how-do-i-handle-dragging-of-a-label-in-c
         /// https://stackoverflow.com/questions/11407068/how-to-drag-and-drop-a-button-from-one-panel-to-another-panel
@@ -129,22 +132,25 @@ namespace DeweyDecimalStacking
             ((Label)e.Data.GetData(typeof(Label))).Parent = (Panel)sender;
         }
         //-------------------------------------------------------------------------------------------------     
-        public static Dictionary<int, string> BoxLabels = new Dictionary<int, string>()
+        /// <summary>
+        /// Dictionaries that are pre-populated
+        /// </summary>
+        //Decimal Code Dictionary
+        public static Dictionary<int, string> CodeLabels = new Dictionary<int, string>()
         {
             {1, "000"},
-            {2, "111"},
-            {3, "222"},
-            {4, "333"},
-            {5, "444"},
-            {6, "555"},
-            {7, "666"},
-            {8, "777"},
-            {9, "888"},
-            {10, "999"},
+            {2, "100"},
+            {3, "200"},
+            {4, "300"},
+            {5, "400"},
+            {6, "500"},
+            {7, "600"},
+            {8, "700"},
+            {9, "800"},
+            {10, "900"},
         };
-
-
-        public static Dictionary<int, string> BookLabels = new Dictionary<int, string>()
+        //Decimal Class Dictionary
+        public static Dictionary<int, string> ClassLabels = new Dictionary<int, string>()
         {
             {1, "General Knowledge"},
             {2, "Philosophy & Psychology"},
@@ -157,6 +163,7 @@ namespace DeweyDecimalStacking
             {9, "Literature"},
             {10, "History & Geography"},
         };
+        //Correct Decimal Code to Class
         public static Dictionary<string, string> CorrectOrder = new Dictionary<string, string>()
         {
             {"000", "General Knowledge"},
@@ -170,11 +177,17 @@ namespace DeweyDecimalStacking
             {"800", "Literature"},
             {"900", "History & Geography"},
         };
-
+        //-------------------------------------------------------------------------------------------------
         //public void EmptyLabelsDictionary()
         //{
         //    EmptyLabels.Add(1, label1.Text);
         //}
+       
+        /// <summary>
+        /// Button for user to return home.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_MatchHome_Click(object sender, EventArgs e)
         {
             Form1 f1 = new Form1();
@@ -182,18 +195,27 @@ namespace DeweyDecimalStacking
             this.Close();
         }
 
+        /// <summary>
+        /// Start button that runs the population for the labels.
+        /// Still working on how to prevent iot from being pressed more than once.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_MatchStart_Click(object sender, EventArgs e)
         {
             PopulateCodes();
             PopulateClasses();
         }
 
+        /// <summary>
+        /// Decimal Code population method
+        /// </summary>
         public void PopulateCodes()
         {
             for (int a = 1; a <= 10; a++)
             {
                 int ranCode = ran.Next(1, 10);
-                LabelValues.Add(a, BoxLabels[ranCode]);
+                LabelValues.Add(a, CodeLabels[ranCode]);
                 //LabelValues is a previosly declared dictionary
                 while (true)
                 {
@@ -221,14 +243,20 @@ namespace DeweyDecimalStacking
         }
     
 
+        /// <summary>
+        /// Decimal Class population method
+        /// </summary>
 public void PopulateClasses()
         {
             for (int i = 1; i <= 10; i++)
             {
-                int ranClass = ran.Next(1, 10);
-               // int ranCode = ran.Next(1, 10);
-                LabelValues2.Add(i, BookLabels[ranClass]);
-                //LabelValues is a previosly declared dictionary
+                
+                  //  string lb = LabelValues[];
+                // int ranClass = ran.Next(1, 10);
+                    // int ranCode = ran.Next(1, 10);
+                    LabelValues2.Add(i, CorrectOrder[lb]);
+                    //LabelValues is a previosly declared dictionary
+                   
                 while (true)
                 {
 
