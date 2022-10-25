@@ -12,6 +12,12 @@ namespace DeweyDecimalStacking
 {
     public partial class MatchGame : Form
     {
+        double index = 1;
+        Random ran = new Random();
+        Dictionary<int, string> LabelValues = new Dictionary<int, string>();
+        Dictionary<int, string> LabelValues2 = new Dictionary<int, string>();
+        //Dictionary<int, string> EmptyLabels = new Dictionary<int, string>();
+
         public MatchGame()
         {
             InitializeComponent();
@@ -52,16 +58,16 @@ namespace DeweyDecimalStacking
             flp_Sorted10.DragDrop += panel_DragDrop;
             flp_Unsorted.DragDrop += panel_DragDrop;
 
-            label1.MouseDown += act1_MouseDown;
-            label2.MouseDown += act2_MouseDown;
-            label3.MouseDown += act3_MouseDown;
-            label4.MouseDown += act4_MouseDown;
-            label5.MouseDown += act5_MouseDown;
-            label6.MouseDown += act6_MouseDown;
-            label7.MouseDown += act7_MouseDown;
-            label8.MouseDown += act8_MouseDown;
-            label9.MouseDown += act9_MouseDown;
-            label10.MouseDown += act10_MouseDown;
+            label11.MouseDown += act1_MouseDown;
+            label22.MouseDown += act2_MouseDown;
+            label33.MouseDown += act3_MouseDown;
+            label44.MouseDown += act4_MouseDown;
+            label55.MouseDown += act5_MouseDown;
+            label66.MouseDown += act6_MouseDown;
+            label77.MouseDown += act7_MouseDown;
+            label88.MouseDown += act8_MouseDown;
+            label99.MouseDown += act9_MouseDown;
+            label101.MouseDown += act10_MouseDown;
         }
 
         //-------------------------------------------------------------------------------------------------
@@ -74,44 +80,44 @@ namespace DeweyDecimalStacking
         /// <param name="e"></param>
         void act1_MouseDown(object sender, MouseEventArgs e)
         {
-            label1.DoDragDrop(label1, DragDropEffects.Move);
+            label11.DoDragDrop(label11, DragDropEffects.Move);
         }
         void act2_MouseDown(object sender, MouseEventArgs e)
         {
-            label2.DoDragDrop(label2, DragDropEffects.Move);
+            label22.DoDragDrop(label22, DragDropEffects.Move);
         }
         void act3_MouseDown(object sender, MouseEventArgs e)
         {
-            label3.DoDragDrop(label3, DragDropEffects.Move);
+            label33.DoDragDrop(label33, DragDropEffects.Move);
         }
         void act4_MouseDown(object sender, MouseEventArgs e)
         {
-            label4.DoDragDrop(label4, DragDropEffects.Move);
+            label44.DoDragDrop(label44, DragDropEffects.Move);
         }
         void act5_MouseDown(object sender, MouseEventArgs e)
         {
-            label5.DoDragDrop(label5, DragDropEffects.Move);
+            label55.DoDragDrop(label55, DragDropEffects.Move);
         }
         void act6_MouseDown(object sender, MouseEventArgs e)
         {
-            label6.DoDragDrop(label6, DragDropEffects.Move);
+            label66.DoDragDrop(label66, DragDropEffects.Move);
         }
         void act7_MouseDown(object sender, MouseEventArgs e)
         {
-            label7.DoDragDrop(label7, DragDropEffects.Move);
+            label77.DoDragDrop(label77, DragDropEffects.Move);
         }
         void act8_MouseDown(object sender, MouseEventArgs e)
         {
-            label8.DoDragDrop(label8, DragDropEffects.Move);
+            label88.DoDragDrop(label88, DragDropEffects.Move);
 
         }
         void act9_MouseDown(object sender, MouseEventArgs e)
         {
-            label9.DoDragDrop(label9, DragDropEffects.Move);
+            label99.DoDragDrop(label99, DragDropEffects.Move);
         }
         void act10_MouseDown(object sender, MouseEventArgs e)
         {
-            label10.DoDragDrop(label10, DragDropEffects.Move);
+            label101.DoDragDrop(label101, DragDropEffects.Move);
         }
 
         void panel_DragEnter(object sender, DragEventArgs e)
@@ -123,32 +129,33 @@ namespace DeweyDecimalStacking
             ((Label)e.Data.GetData(typeof(Label))).Parent = (Panel)sender;
         }
         //-------------------------------------------------------------------------------------------------     
-        public static Dictionary<string, string> BoxLabels = new Dictionary<string, string>()
+        public static Dictionary<int, string> BoxLabels = new Dictionary<int, string>()
         {
-            {"label1", "000"},
-            {"label2", "111"},
-            {"label3", "222"},
-            {"label4", "333"},
-            {"label5", "444"},
-            {"label6", "555"},
-            {"label7", "666"},
-            {"label8", "777"},
-            {"label9", "888"},
-            {"label10", "999"},
+            {1, "000"},
+            {2, "111"},
+            {3, "222"},
+            {4, "333"},
+            {5, "444"},
+            {6, "555"},
+            {7, "666"},
+            {8, "777"},
+            {9, "888"},
+            {10, "999"},
         };
 
-        public static Dictionary<string, string> BookLabels = new Dictionary<string, string>()
+
+        public static Dictionary<int, string> BookLabels = new Dictionary<int, string>()
         {
-            {"label11", "General Knowledge"},
-            {"label22", "Philosophy & Psychology"},
-            {"label33", "Religion"},
-            {"label44", "Social Sciences"},
-            {"label55", "Languages"},
-            {"label66", "Science"},
-            {"label77", "Technology"},
-            {"label88", "Art & Recreation"},
-            {"label99", "Literature"},
-            {"label101", "History & Geography"},
+            {1, "General Knowledge"},
+            {2, "Philosophy & Psychology"},
+            {3, "Religion"},
+            {4, "Social Sciences"},
+            {5, "Languages"},
+            {6, "Science"},
+            {7, "Technology"},
+            {8, "Art & Recreation"},
+            {9, "Literature"},
+            {10, "History & Geography"},
         };
         public static Dictionary<string, string> CorrectOrder = new Dictionary<string, string>()
         {
@@ -164,6 +171,10 @@ namespace DeweyDecimalStacking
             {"900", "History & Geography"},
         };
 
+        //public void EmptyLabelsDictionary()
+        //{
+        //    EmptyLabels.Add(1, label1.Text);
+        //}
         private void btn_MatchHome_Click(object sender, EventArgs e)
         {
             Form1 f1 = new Form1();
@@ -173,29 +184,78 @@ namespace DeweyDecimalStacking
 
         private void btn_MatchStart_Click(object sender, EventArgs e)
         {
-            PopulateBoxes();
+            PopulateCodes();
+            PopulateClasses();
         }
 
-    public void PopulateBoxes()
-    {
-        var lastPos = 0;
-
-        foreach (KeyValuePair<string, string> labels in BoxLabels)
+        public void PopulateCodes()
         {
-            Label l = new Label();
-            l.Name = labels.Key;
-            l.Text = labels.Value;
-            l.Size = new Size(93, 12);
-            l.Location = new Point(0, lastPos);
+            for (int a = 1; a <= 10; a++)
+            {
+                int ranCode = ran.Next(1, 10);
+                LabelValues.Add(a, BoxLabels[ranCode]);
+                //LabelValues is a previosly declared dictionary
+                while (true)
+                {
 
-            lastPos += 15; // Adds 15 to the previous value
+                    if (index == 10)
+                    {
+                        break;
+                    }
+                    index++;
+                }
 
-            flp_Boxes.Controls.Add(l);
+            }
+
+            label1.Text = LabelValues[1];
+            label2.Text = LabelValues[2];
+            label3.Text = LabelValues[3];
+            label4.Text = LabelValues[4];
+            label5.Text = LabelValues[5];
+            label6.Text = LabelValues[6];
+            label7.Text = LabelValues[7];
+            label8.Text = LabelValues[8];
+            label9.Text = LabelValues[9];
+            label10.Text = LabelValues[10];
+
         }
-    }
+    
+
+public void PopulateClasses()
+        {
+            for (int i = 1; i <= 10; i++)
+            {
+                int ranClass = ran.Next(1, 10);
+               // int ranCode = ran.Next(1, 10);
+                LabelValues2.Add(i, BookLabels[ranClass]);
+                //LabelValues is a previosly declared dictionary
+                while (true)
+                {
+
+                    if (index == 10)
+                    {
+                        break;
+                    }
+                    index++;
+                }
+
+            }
+
+            label11.Text = LabelValues2[1];
+            label22.Text = LabelValues2[2];
+            label33.Text = LabelValues2[3];
+            label44.Text = LabelValues2[4];
+            label55.Text = LabelValues2[5];
+            label66.Text = LabelValues2[6];
+            label77.Text = LabelValues2[7];
+            label88.Text = LabelValues2[8];
+            label99.Text = LabelValues2[9];
+            label101.Text = LabelValues2[10];
+
+        }
 
     }
 
 
-    }
+}
 
